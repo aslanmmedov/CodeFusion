@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { useConfirmEmailMutation } from '../../Redux/services/Userservice';
+import { useConfirmEmailMutation } from '../../redux/services/userservice';
 
 function Confirm() {
     const { userId, token } = useParams()
@@ -8,8 +8,8 @@ function Confirm() {
     let navigate = useNavigate()
     const handleConfirmEmail = async () => {
         try {
-            const response = await confirmEmail({ userId, token }).unwrap();
-            console.log("Email confirmed successfully:", response);
+             await confirmEmail({ userId, token });
+            console.log("Email confirmed successfully:");
              navigate('/login')
 
         } catch (error) {
@@ -19,7 +19,7 @@ function Confirm() {
     }
     useEffect(()=>{
         handleConfirmEmail()
-    },[])
+    },[userId,token])
     console.log(userId, token);
     return (
         <div>

@@ -5,21 +5,22 @@ import './index.scss';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate, useParams } from 'react-router-dom';
-// import { useUpdatePasswordMutation, useVerifyForgotPasswordMutation } from '../../Redux/services/Userservice';
+import { useUpdatePasswordMutation, useVerifyForgotPasswordMutation } from '../../redux/services/userservice';
+
 
 
 
 function UpdatePassword() {
-    // let { userId, resetToken } = useParams()
-    // let [verifyForgotPassword] = useVerifyForgotPasswordMutation()
-    // let [UpdatePassword] = useUpdatePasswordMutation()
+    let { userId, resetToken } = useParams()
+    let [verifyForgotPassword] = useVerifyForgotPasswordMutation()
+    let [UpdatePassword] = useUpdatePasswordMutation()
     const [isVerified, setIsVerified] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
     let navigate = useNavigate()
     const VerifyForgotPasw = async () => {
         try {
-            // const response = await verifyForgotPassword({ userId, resetToken }).unwrap();
+             const response = await verifyForgotPassword({ userId, resetToken }).unwrap();
             console.log("Forgot password verified successfully:", response);
             setIsVerified(true);
         } catch (error) {

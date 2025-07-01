@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { useVerifyForgotPasswordMutation } from '../../Redux/services/Userservice'
+import { useVerifyForgotPasswordMutation } from '../../redux/services/userservice'
 import { Skeleton } from 'antd';
 function VerifyForgotPassword() {
 

@@ -5,7 +5,7 @@ import '../index.scss';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
-import { useLoginSendOtpEmailMutation } from '../../../Redux/services/Userservice';
+import { useLoginSendOtpEmailMutation } from '../../../redux/services/userservice';
 
 
 function LoginSendOtpEmail() {

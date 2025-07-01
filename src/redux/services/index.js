@@ -1,5 +1,7 @@
-import { userApi } from "./Userservice"
+import { reservationApi } from "./ReservationService";
+import { userApi } from "./userservice";
 
-const apis  = [userApi];
+
+const apis  = [userApi,reservationApi];
 
 export default apis

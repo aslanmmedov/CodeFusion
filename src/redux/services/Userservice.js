@@ -92,6 +92,13 @@ export const userApi = createApi({
         body: { userId, resetToken },
       }),
     }),
+     superAdminVerifyPAsw: builder.mutation({
+      query: ({ email, resetToken }) => ({
+        url: "/Auth/super-admin-verify-set-password-token",
+        method: "POST",
+        body: { email, resetToken },
+      }),
+    }),
     UpdatePassword: builder.mutation({
       query: (data) => ({
         url: '/Users/update-password',
@@ -148,6 +155,7 @@ export const {
   useLoginSendOtpEmailMutation,
   useLoginSendOtpVerifyMutation,
   useLoginSendOtpPhoneMutation,
-  useLoginSendOtpVerifyNumberMutation
-  
+  useLoginSendOtpVerifyNumberMutation,
+  useSuperAdminVerifyPAswMutation
+
 } = userApi;
