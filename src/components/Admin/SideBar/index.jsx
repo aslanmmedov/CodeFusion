@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { NavLink } from "react-router-dom";
 import { FaAppStore, FaChartLine, FaHome, FaUsers, FaUserSecret } from "react-icons/fa";
 import { BsFillCartCheckFill } from 'react-icons/bs';
@@ -8,14 +8,15 @@ import { MdHotel } from "react-icons/md";
 import { MdOutlineHotelClass } from "react-icons/md";
 import { TbHotelService } from "react-icons/tb";
 import { BiLogOut } from "react-icons/bi";
+import { RoleContext } from '../../../Context/RolesContext';
 function Sidebar() {
     const {t} = useTranslation();
     // const userRole = localStorage.getItem("userRole");
     const userRole = "admin";
-
+    const { UserRole } = useContext(RoleContext);
     return (
-        <div className={userRole === "admin"? "sidebarr": "sidebar-m"}>
-            {userRole === "admin"?<h1>Admin {t("system")}</h1>:<h1><div className="img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_epjBWVR39v49aGbeJC-1CDNsoWKfqvGnIg&s" alt="" /></div>Deluxe Manager {t("system")}</h1>} 
+        <div className={UserRole === "admin"? "sidebarr": "sidebar-m"}>
+            {UserRole === "admin"?<h1>Admin {t("system")}</h1>:<h1><div className="img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_epjBWVR39v49aGbeJC-1CDNsoWKfqvGnIg&s" alt="" /></div>Deluxe Manager {t("system")}</h1>} 
             <ul>
                 <li>
                     <NavLink to={""} end className={({ isActive }) => isActive ? "navlink active" : "navlink"}>   
@@ -24,7 +25,7 @@ function Sidebar() {
                 </li>
 
                 {/* Admin-only links */}
-                {userRole === "admin" && (
+                {UserRole === "admin" && (
                     <>
                         <li>
                             <NavLink to={"otaqlar"} className={({ isActive }) => isActive ? "navlink active" : "navlink"}>

@@ -17,6 +17,7 @@ function Stores() {
   const [open, setOpen] = useState(false);
   const [selectedStore, setSelectedStore] = useState(null);
   const dispatch = useDispatch();
+  
   // const { data, loading, error } = useSelector((state) => state.stores);
   // useEffect(() => {
   //   dispatch(fetchStores());
