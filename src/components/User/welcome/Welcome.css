@@ -1,0 +1,32 @@
+#welcome {
+    margin: 40px 0 40px 0;
+}
+
+.welcome_img img{
+    width: 555px;
+    height: 700px;
+}
+
+.welcome_content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 80px;
+}
+
+.welcome_content span {
+    font-size: 14px;
+    color: #808080;
+    text-align: center;
+}
+
+.welcome_content h2 {
+    margin: 20px 0 20px 0;
+    font-size: 38px;
+    font-weight: 450;
+    text-align: center;
+}
+
+.welcome_content p {
+    color: #808080;
+
+}
