@@ -1,51 +1,32 @@
 import React, { useEffect, useState } from 'react'
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import './index.scss';
+import '../../../pages/Auth/index.scss';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate, useParams } from 'react-router-dom';
-// import { useUpdatePasswordMutation, useVerifyForgotPasswordMutation } from '../../Redux/services/Userservice';
 
 
 
-function UpdatePassword() {
-    // let { userId, resetToken } = useParams()
-    // let [verifyForgotPassword] = useVerifyForgotPasswordMutation()
-    // let [UpdatePassword] = useUpdatePasswordMutation()
-    const [isVerified, setIsVerified] = useState(false);
-    const [isLoading, setIsLoading] = useState(true);
+function ChangePassword() {
+  
     const [error, setError] = useState(null);
     let navigate = useNavigate()
-    const VerifyForgotPasw = async () => {
-        try {
-            // const response = await verifyForgotPassword({ userId, resetToken }).unwrap();
-            console.log("Forgot password verified successfully:", response);
-            setIsVerified(true);
-        } catch (error) {
-            console.error("Error verifying forgot password:", error);
-            setError("Link expired or invalid.");
-        } finally {
-            setIsLoading(false);
-        }
-    }
-
-    useEffect(() => {
-        VerifyForgotPasw()
-    }, [])
-
-
-
-
-
+  
     const formik = useFormik({
         initialValues: {
-
+            oldPassword: "",
             password: '',
             passwordConfirm: '',
         },
         validationSchema: Yup.object({
-
+            oldPassword: Yup.string()
+                .required("Password field cannot be empty.")
+                .min(8, "Password must be at least 8 characters long.")
+                .matches(/[A-Z]/, "Password must contain at least one uppercase letter.")
+                .matches(/[a-z]/, "Password must contain at least one lowercase letter.")
+                .matches(/[0-9]/, "Password must contain at least one digit.")
+                .matches(/\W/, "Password must contain at least one special character."),
 
             password: Yup.string()
                 .required("Password field cannot be empty.")
@@ -62,14 +43,9 @@ function UpdatePassword() {
 
         onSubmit: async (values, { setErrors }) => {
             try {
-                values.userId = userId;
-                values.resetToken = resetToken;
-                await UpdatePassword(values)
-                console.log(values);
-                toast.success("Password updated successfully.");
-                setTimeout(() => {
-                   navigate('/login')
-                }, 4000);
+              
+       
+                toast.success("Password change successfully.");
             } catch (error) {
                 if (error?.data?.errors) {
                     const backendErrors = error.data.errors;
@@ -86,29 +62,23 @@ function UpdatePassword() {
             }
         }
     });
-    if (isLoading) {
-        return (
-            <div style={{ display: 'flex', justifyContent: 'center', marginTop: '50px' }}>
-                <h2>Verifying link...</h2>
-            </div>
-        );
-    }
-
-    if (error) {
-        return (
-            <div style={{ maxWidth: '400px', margin: '50px auto' }}>
-                <h2>{error}</h2>
-            </div>
-        );
-    }
-
-    if (!isVerified) return null;
-
-
+    
     return (
         <div className='Auth'>
-            <h2>Update Password</h2>
+            <h2>Change Password</h2>
             <form onSubmit={formik.handleSubmit}>
+                 <input
+                    id="oldPassword"
+                    name="oldPassword"
+                    type="password"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.oldPassword}
+                    placeholder='Old Password'
+                />
+                {formik.touched.oldPassword && formik.errors.oldPassword && (
+                    <div className="error">{formik.errors.oldPassword}</div>
+                )}
                 <input
                     id="password"
                     name="password"
@@ -141,4 +111,4 @@ function UpdatePassword() {
     );
 }
 
-export default UpdatePassword;
+export default ChangePassword;

@@ -6,16 +6,16 @@ import { useTranslation } from 'react-i18next';
 
 
 function Sidebar() {
-    const {t} = useTranslation();
+    const { t } = useTranslation();
     // const userRole = localStorage.getItem("userRole");
     const userRole = "admin";
 
     return (
-        <div className={userRole === "admin"? "sidebarr": "sidebar-m"}>
-            {userRole === "admin"?<h1>Admin {t("system")}</h1>:<h1>Manager {t("system")}</h1>}
+        <div className={userRole === "admin" ? "sidebarr" : "sidebar-m"}>
+            {userRole === "admin" ? <h1>Admin {t("system")}</h1> : <h1>Manager {t("system")}</h1>}
             <ul>
                 <li>
-                    <NavLink to={""} end className={({ isActive }) => isActive ? "navlink active" : "navlink"}>   
+                    <NavLink to={""} end className={({ isActive }) => isActive ? "navlink active" : "navlink"}>
                         <FaHome /> {t("Dashboard")}
                     </NavLink>
                 </li>
@@ -52,6 +52,10 @@ function Sidebar() {
                         <BsFillCartCheckFill /> {t("Xidmətlər")}
                     </NavLink>
                 </li>
+
+            
+
+
             </ul>
         </div>
     );

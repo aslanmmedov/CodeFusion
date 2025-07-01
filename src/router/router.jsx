@@ -1,4 +1,5 @@
 import AdminLayout from "../layout/admin/AdminLayout"
+import UserLayout from "../layout/user/UserLayout"
 import Dashboard from "../pages/Admin/Dashboard"
 import Orders from "../pages/Admin/Orders"
 import Products from "../pages/Admin/Products"
@@ -15,8 +16,20 @@ import ForgotPassword from "../pages/Auth/ForgotPassword"
 import Login from "../pages/Auth/Login"
 import Register from "../pages/Auth/Register"
 import Error404 from "../pages/ErrorPage"
+import UserProfile from "../pages/User/UserProfile"
 
 const Routes = [
+    {
+        path:'/',
+        element:<UserLayout/>,
+        children:[
+            {
+                path:"user-profile",
+                element:<UserProfile/>
+            }
+        ]
+    }
+    ,
         {
         path:"admin",
         element:<AdminLayout/>,
@@ -28,7 +41,7 @@ const Routes = [
             {path:"suppliers",element:<Suppliers/>},
             {path:"users",element:<Users/>}
         ]
-    }
+    },
     // AUTH
     { path: '/register', element: <Register /> },
     { path: '/login', element: <Login /> },
