@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import DynamicPage from "../../../components/Admin/DynamicPage";
 import { useTranslation } from "react-i18next";
+import { RoleContext } from "../../../Context/RolesContext";
 const dataSource = [
   {
     key: "1",
@@ -35,6 +36,7 @@ const columns = [
 ];
 function Products() {
   const { t } = useTranslation();
+  const { UserRole } = useContext(RoleContext);
   return (
      <DynamicPage columns={columns} data={dataSource}/>
   );
