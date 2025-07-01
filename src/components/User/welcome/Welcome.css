@@ -38,6 +38,10 @@
 
 /* Responsiv  */
 @media (max-width: 992px) {
+    .welcome_container{
+        grid-template-columns: 1fr;
+        
+    }
    
     .row.container8 {
         display: flex;

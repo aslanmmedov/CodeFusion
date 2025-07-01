@@ -10,7 +10,7 @@ import { TbHotelService } from "react-icons/tb";
 import { BiLogOut } from "react-icons/bi";
 import { RoleContext } from '../../../Context/RolesContext';
 function Sidebar() {
-    const {t} = useTranslation();
+    const { t } = useTranslation();
     // const userRole = localStorage.getItem("userRole");
     const userRole = "admin";
     const { UserRole } = useContext(RoleContext);

@@ -92,22 +92,50 @@ export const userApi = createApi({
         body: { userId, resetToken },
       }),
     }),
-     UpdatePassword: builder.mutation({
-            query: (data) => ({
-                url: '/Users/update-password',
-                method: 'POST',
-                body: data,
-            }),
-        }),
+    UpdatePassword: builder.mutation({
+      query: (data) => ({
+        url: '/Users/update-password',
+        method: 'POST',
+        body: data,
+      }),
+    }),
     getUsers: builder.query({
-      query: ({ page,size }) => ({
-        url:"/Users",
+      query: ({ page, size }) => ({
+        url: "/Users",
         method: "GET",
         params: { page, size },
       }),
     }),
+     loginSendOtpEmail: builder.mutation({
+      query: (email) => ({
+        url: "/Auth/login-send-otp-to-email",
+        method: "POST",
+        body: {email},
+      }),
+    }),
+    loginSendOtpVerify: builder.mutation({
+      query: (otp) => ({
+        url: "/Auth/login-verify-otp-email",
+        method: "POST",
+        body: otp ,
+      }),
+    }),
+    LoginSendOtpPhone:builder.mutation({
+      query: (number) => ({
+        url: "/Auth/login-send-otp-to-number",
+        method: "POST",
+        body: {number} ,
+      }),
+    }),
+     loginSendOtpVerifyNumber: builder.mutation({
+      query: (otp) => ({
+        url: "/Auth/login-verify-otp-number",
+        method: "POST",
+        body: otp ,
+      }),
+    }),
   }),
-    })
+})
 
 export const {
   useLoginUserMutation,
@@ -116,5 +144,10 @@ export const {
   useForgotPasswordMutation,
   useVerifyForgotPasswordMutation,
   useGetUsersQuery,
-  useUpdatePasswordMutation
+  useUpdatePasswordMutation,
+  useLoginSendOtpEmailMutation,
+  useLoginSendOtpVerifyMutation,
+  useLoginSendOtpPhoneMutation,
+  useLoginSendOtpVerifyNumberMutation
+  
 } = userApi;

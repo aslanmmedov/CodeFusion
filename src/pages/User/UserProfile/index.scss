@@ -1,0 +1,23 @@
+
+.profile-content{
+
+   display: grid;
+   grid-template-columns: 4fr 18fr;
+   gap: 20px;
+
+   ul{
+    width: 100%;
+    background-color: rgb(213, 20, 20);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    a{
+        color: black;
+        padding: 10px 0;
+        width: 100%;
+        font-size: 18px;
+    }
+   }
+
+}
