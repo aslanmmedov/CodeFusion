@@ -5,12 +5,14 @@ import { MdOutlineBedroomParent } from "react-icons/md";
 import { BiHotel } from "react-icons/bi";
 import { TbHotelService } from "react-icons/tb";
 import "./style.scss"
+import { RoleContext } from "../../../Context/RolesContext";
+import { useContext } from "react";
 function Dashboard() {
   // const userRole = localStorage.getItem("userRole");
-    const userRole = "manager";
+  const { UserRole } = useContext(RoleContext);
   return (
     <>
-      <div className={userRole === "admin"? "h-cards": "m-cards"}>
+      <div className={UserRole === "admin"? "h-cards": "m-cards"}>
         <h1>Ümumi nəzarət</h1>
         <div className="cards">
           <div className="s-card">
@@ -43,7 +45,7 @@ function Dashboard() {
           </div>
         </div>
       </div>
-      <div className={userRole === "admin"? "circleChart": "c-chart"}>
+      <div className={UserRole === "admin"? "circleChart": "c-chart"}>
         <h2>Doluluq qrafiki</h2>
         <PieChartComponent />
       </div>

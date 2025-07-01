@@ -1,6 +1,11 @@
-import React from 'react';
-import { Pie, PieChart, ResponsiveContainer, Cell } from 'recharts';
-
+import React, { useContext } from 'react';
+import {
+  PieChart,
+  Pie,
+  Cell,
+  ResponsiveContainer
+} from 'recharts';
+import { RoleContext } from '../../../Context/RolesContext';
 
 const data = [
   { name: 'Group A', value: 400 },
@@ -38,11 +43,11 @@ const renderCustomizedLabel = ({
 };
 
 const PieChartComponent = () => {
+    const { UserRole } = useContext(RoleContext);
   // Example: Simulating role (normally fetched from localStorage or Redux)
 //   const userRole = localStorage.getItem("userRole") || "manager";
-    const userRole = "manager";
   // Get corresponding color set, fallback to 'default'
-  const COLORS = COLOR_SETS[userRole] || COLOR_SETS.default;
+  const COLORS = COLOR_SETS[UserRole] || COLOR_SETS.default;
 
   return (
     <div style={{ width: '50%', height: 400 }}>

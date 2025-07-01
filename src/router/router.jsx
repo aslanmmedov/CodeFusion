@@ -44,6 +44,15 @@ const Routes = [
             {path:"otaqlar",element:<Suppliers/>},
             {path:"istifadeçiler",element:<Users/>}
         ]
+    },
+    {
+        path:"/",
+        element:<UserLayout/>,
+        children:[
+            {path:"",element:<Home/>},
+            
+        ]
+    }   
     }
     ,
     // AUTH
