@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const Login = () => {
   const navigate = useNavigate();
   const [loginUser] = useLoginUserMutation();
-  const { data, isLoading, isError } = useGetUsersQuery({ page: 0, size: 10 });
+//   const { data, isLoading, isError } = useGetUsersQuery({ page: 0, size: 10 });
 
   const formik = useFormik({
     initialValues: {

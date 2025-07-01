@@ -64,6 +64,17 @@ const Routes = [
         path: "*",
         element: <Error404 />,
     },
+    // AUTH
+    { path: '/register', element: <Register /> },
+    { path: '/login', element: <Login /> },
+    { path: "confirm-email/:userId/:token", element: <Confirm /> },
+    { path: "forgot-password", element: <ForgotPassword /> },
+    { path: "2fa-method-login", element: <TwoFAMethodLogin /> },
+    { path: "2fa-verify-otp-email", element: <LoginVerifyEmailOtp /> },
+    { path: "2fa-send-otp-email", element: <LoginSendOtpEmail /> },
+    { path: "2fa-send-otp-phone", element: <LoginSendOtpPhone /> },
+    { path: "2fa-verify-otp-phone", element: <VerifyPhoneOtp /> },
+   
 ]
 
 export default Routes
