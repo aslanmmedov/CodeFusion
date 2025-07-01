@@ -27,7 +27,7 @@ const Routes = [
             {path:"",element:<Home/>},
             
         ]
-    }
+    }   
 ]
 
 export default Routes
