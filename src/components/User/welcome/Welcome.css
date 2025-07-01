@@ -38,6 +38,7 @@
 
 /* Responsiv  */
 @media (max-width: 992px) {
+   
     .row.container8 {
         display: flex;
         flex-wrap: wrap;
