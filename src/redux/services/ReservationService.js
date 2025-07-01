@@ -47,7 +47,7 @@ export const reservationApi = createApi({
   tagTypes: ["Reservation"],
   endpoints: (builder) => ({
     getReservations: builder.query({
-      query: () => "/Reservations",
+      query: () => "/Reservation",
     }),
     getReservationById: builder.query({
       query: (id) => `/Reservations/${id}`,

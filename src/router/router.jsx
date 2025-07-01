@@ -7,6 +7,7 @@ import Stores from "../pages/Admin/Stores"
 import Suppliers from "../pages/Admin/Suppliers"
 import Users from "../pages/Admin/Users"
 import Home from "../pages/User/Home"
+import PrivateRoute from "../components/PrivateRoute"
 import LoginSendOtpEmail from "../pages/Auth/2FA/LoginSendOtpEmail"
 import LoginSendOtpPhone from "../pages/Auth/2FA/LoginSendOtpPhone"
 import LoginVerifyEmailOtp from "../pages/Auth/2FA/LoginVerifyOtpEmail"
@@ -32,29 +33,39 @@ const Routes = [
         ]
     }
     ,
-   
-        {
-        path:"dashboard",
-        element:<AdminLayout/>,
-        children:[
-            {path:"",element:<Dashboard/>},
-            {path:"müşteriler",element:<Orders/>},
-            {path:"rezervasiyalar",element:<Products/>},
-            {path:"xidmetler",element:<Stores/>},
-            {path:"otaqlar",element:<Suppliers/>},
-            {path:"istifadeçiler",element:<Users/>}
-        ]
+
+    {
+        path: "dashboard",
+        element: <PrivateRoute allowedRoles={["admin", "manage"]} />,
+        children: [
+            {
+                path: "",
+                element: <AdminLayout />,
+                children: [
+                    { path: "", element: <Dashboard /> },
+                    { path: "müşteriler", element: <Orders /> },
+                    { path: "rezervasiyalar", element: <Products /> },
+                    { path: "xidmetler", element: <Stores /> },
+                    { path: "otaqlar", element: <Suppliers /> },
+                    { path: "istifadeçiler", element: <Users /> },
+                ],
+            },
+        ],
     },
     {
-        path:"/",
-        element:<UserLayout/>,
-        children:[
-            {path:"",element:<Home/>},
-            
+        path: "/",
+        element: <UserLayout />,
+        children: [
+            { path: "", element: <Home /> },
+
         ]
-    }   
-    
-    ,
+
+    }
+    },
+     {
+        path: "*",
+        element: <Error404 />,
+    },
     // AUTH
     { path: '/register', element: <Register /> },
     { path: '/login', element: <Login /> },
@@ -65,7 +76,7 @@ const Routes = [
     { path: "2fa-send-otp-email", element: <LoginSendOtpEmail /> },
     { path: "2fa-send-otp-phone", element: <LoginSendOtpPhone /> },
     { path: "2fa-verify-otp-phone", element: <VerifyPhoneOtp /> },
-    // { path: "*", element: <Error404 /> }
+   
 ]
 
 export default Routes
