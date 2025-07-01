@@ -1,0 +1,26 @@
+.listt {
+    display: flex;
+    gap: 20px;
+}
+
+/* Responsiv */
+@media (max-width: 768px) {
+    .listt {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+.listt_item {
+    font-size: 16px;
+    color: #1F3F53FF;
+    cursor: pointer;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+
+.listt_item:hover {
+    color: rgb(9, 95, 149);
+    background-color: #f0f0f0;
+    transition: .5s ease all;
+}

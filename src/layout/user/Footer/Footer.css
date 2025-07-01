@@ -1,0 +1,87 @@
+.footer {
+  background:  #1F3F53FF;;
+  color: #fbfafa;
+  font-family: 'Libre Baskerville', serif;
+  border-top: 1px solid #eee;
+  padding-top: 40px;
+}
+
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.footer-logo-section {
+  flex: 1 1 200px;
+  max-width: 250px;
+}
+
+.footer-logo {
+  width: 120px;
+  height: auto;
+}
+
+.footer-description {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.footer-socials {
+  margin-top: 10px;
+}
+
+.footer-socials a {
+  margin-right: 10px;
+  color: #fcf9f9;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.footer-column {
+  flex: 1 1 180px;
+}
+
+.footer-column h3 {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.footer-column input[type="email"] {
+  width: 100%;
+  padding: 6px;
+  border: none;
+  border-bottom: 1px solid black;
+  background: transparent;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.footer-column button {
+  background: none;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 13px;
+  color: #fbf7f7;
+}
+
+.heart {
+  color: hotpink;
+}
