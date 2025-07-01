@@ -5,10 +5,11 @@ import '../index.scss';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
+import { useLoginSendOtpPhoneMutation } from '../../../Redux/services/Userservice';
 
 function LoginSendOtpPhone() {
   const navigate = useNavigate();
-
+let [LoginSendOtpPhone] = useLoginSendOtpPhoneMutation()
   const formik = useFormik({
     initialValues: {
       phoneNumber: '',
@@ -20,11 +21,11 @@ function LoginSendOtpPhone() {
     }),
     onSubmit: async (values) => {
       try {
-        // Burada API çağırışı ilə telefon nömrəsinə OTP göndərilir
-        // await sendPhoneOtp(values.phoneNumber);
+       
+        await LoginSendOtpPhone(values);
 
         toast.success('OTP sent to your phone number');
-        navigate('/verify-phone-otp');
+        navigate('/2fa-verify-otp-phone');
       } catch (error) {
         toast.error('Failed to send OTP. Please try again.');
       }

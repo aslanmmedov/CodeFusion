@@ -1,4 +1,4 @@
-import { useFormik } from 'formik';
+
 import React from 'react'
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -59,7 +59,7 @@ function Profile() {
       });
     return (
         <div>
-            <div className="profile-topo">
+            <div className="profile-top">
                 <div>
                    <span> <FaRegUserCircle /></span>
                     <h2>Ebru Bendeliyeva</h2>

@@ -1,24 +1,49 @@
-import React from 'react'
-import "./index.scss"
-import { NavLink } from 'react-router-dom'
-function UserProfile() {
-    return (
-        <div className='profile-content'>
-          
-                <ul>
-                    <li>
-                        <NavLink>Profile</NavLink>
-                    </li>
-                    <li> <NavLink>Change Password</NavLink></li>
-                    <li> <NavLink>My Rezervations</NavLink></li>
-                    <li> <NavLink>2FA settings</NavLink></li>
-                </ul>
-        
-            <div className="profile-content">
+import React, { useState } from 'react';
+import './index.scss';
+import Profile from '../../../components/User/Profile';
+import ChangePassword from '../../../components/User/ChangePasw';
 
-            </div>
-        </div>
-    )
+
+function UserProfile() {
+  const [activeComponent, setActiveComponent] = useState("profile");
+
+  const renderComponent = () => {
+    switch (activeComponent) {
+      case "profile":
+        return <Profile />;
+      case "change-password":
+        return <ChangePassword/>;
+      case "reservations":
+        return <MyReservations />;
+      case "2fa":
+        return <TwoFASettings />;
+      default:
+        return <Profile />;
+    }
+  };
+
+  return (
+    <div className='profile-content'>
+      <ul>
+        <li>
+          <button onClick={() => setActiveComponent("profile")}>Profile</button>
+        </li>
+        <li>
+          <button onClick={() => setActiveComponent("change-password")}>Change Password</button>
+        </li>
+        <li>
+          <button onClick={() => setActiveComponent("reservations")}>My Reservations</button>
+        </li>
+        <li>
+          <button onClick={() => setActiveComponent("2fa")}>2FA Settings</button>
+        </li>
+      </ul>
+
+      <div className="profile-content">
+        {renderComponent()}
+      </div>
+    </div>
+  );
 }
 
-export default UserProfile
+export default UserProfile;

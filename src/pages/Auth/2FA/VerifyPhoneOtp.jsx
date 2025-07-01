@@ -5,10 +5,11 @@ import '../index.scss';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
+import { useLoginSendOtpVerifyNumberMutation } from '../../../Redux/services/Userservice';
 
 function VerifyPhoneOtp() {
   const navigate = useNavigate();
-
+  let [loginSendOtpVerifyNumber] = useLoginSendOtpVerifyNumberMutation()
   const formik = useFormik({
     initialValues: {
       otp: '',
@@ -21,7 +22,7 @@ function VerifyPhoneOtp() {
     onSubmit: async (values) => {
       try {
         // Burada API çağırışı ilə OTP təsdiqlənir
-        // const response = await verifyPhoneOtp(values.otp);
+        const response = await loginSendOtpVerifyNumber(values).unwrap();
 
         // Məsələn, uğurlu təsdiqləmə:
         localStorage.setItem('accessToken', 'dummy-access-token');

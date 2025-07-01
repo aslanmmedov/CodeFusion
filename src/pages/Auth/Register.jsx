@@ -3,14 +3,14 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import './index.scss';
 import { Form, Link, useNavigate } from 'react-router-dom';
-// import { useAddUserMutation } from '../../Redux/services/Userservice';
+import { useAddUserMutation } from '../../Redux/services/Userservice';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
 
 function Register() {
-//   const [addUser] = useAddUserMutation()
+  const [addUser] = useAddUserMutation()
   const navigate = useNavigate()
 
   const formik = useFormik({
@@ -55,7 +55,7 @@ function Register() {
 
     onSubmit: async (values, { setErrors }) => {
       try {
-        // await addUser(values).unwrap();
+        await addUser(values).unwrap();
           toast.success("Registration successful! Check your email to confirm your account.");
     setTimeout(()=>{
         formik.resetForm();

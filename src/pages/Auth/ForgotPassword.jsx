@@ -3,12 +3,12 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import './index.scss';
 import { Link, useNavigate } from 'react-router-dom';
-// import { useForgotPasswordMutation } from '../../Redux/services/Userservice';
+import { useForgotPasswordMutation } from '../../Redux/services/Userservice';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const ForgotPassword = () => {
-// let [forgotPassword] = useForgotPasswordMutation()
+let [forgotPassword] = useForgotPasswordMutation()
     const formik = useFormik({
         initialValues: {
 
@@ -24,7 +24,7 @@ const ForgotPassword = () => {
         onSubmit: async (values) => {
             console.log(values);
             try {
-                // await forgotPassword(values)
+                await forgotPassword(values)
                 console.log("Password reset email sent successfully.");
             } catch (error) {
                 console.error("Error sending password reset email:", error);

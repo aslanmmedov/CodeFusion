@@ -21,37 +21,30 @@ import UserProfile from "../pages/User/UserProfile"
 
 const Routes = [
     {
-        path:'/',
-        element:<UserLayout/>,
-        children:[
+        path: '/',
+        element: <UserLayout />,
+        children: [
+            { path: "", element: <Home /> },
             {
-                path:"user-profile",
-                element:<UserProfile/>
+                path: "user-profile",
+                element: <UserProfile />
             }
         ]
     }
     ,
-        {
-        path:"admin",
-        element:<AdminLayout/>,
-        children:[
-            {path:"",element:<Dashboard/>},
-            {path:"orders",element:<Orders/>},
-            {path:"products",element:<Products/>},
-            {path:"stores",element:<Stores/>},
-            {path:"suppliers",element:<Suppliers/>},
-            {path:"users",element:<Users/>}
-        ]
-    },
     {
-        path:"/",
-        element:<UserLayout/>,
-        children:[
-            {path:"",element:<Home/>},
-            
+        path: "admin",
+        element: <AdminLayout />,
+        children: [
+            { path: "", element: <Dashboard /> },
+            { path: "orders", element: <Orders /> },
+            { path: "products", element: <Products /> },
+            { path: "stores", element: <Stores /> },
+            { path: "suppliers", element: <Suppliers /> },
+            { path: "users", element: <Users /> }
         ]
     }
-    },
+    ,
     // AUTH
     { path: '/register', element: <Register /> },
     { path: '/login', element: <Login /> },

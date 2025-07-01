@@ -3,14 +3,14 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import './index.scss';
 import { Link, useNavigate } from 'react-router-dom';
-// import { useGetUsersQuery, useLoginUserMutation } from '../../Redux/services/Userservice';
+import { useGetUsersQuery, useLoginUserMutation } from '../../Redux/services/Userservice';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
   const navigate = useNavigate();
-//   const [loginUser] = useLoginUserMutation();
-//   const { data, isLoading, isError } = useGetUsersQuery({ page: 0, size: 10 });
+  const [loginUser] = useLoginUserMutation();
+  const { data, isLoading, isError } = useGetUsersQuery({ page: 0, size: 10 });
 
   const formik = useFormik({
     initialValues: {
@@ -26,28 +26,28 @@ const Login = () => {
         .required("Required"),
     }),
     onSubmit: async (values) => {
-//       if (!data || !data.data || !data.data.users) {
-//         toast.error('User data not available');
-//         return;
-//       }
+      if (!data || !data.data || !data.data.users) {
+        toast.error('User data not available');
+        return;
+      }
 
-//       const foundUser = data.data.users.find(
-//         user =>
-//           user.email === values.usernameOrEmail ||
-//           user.userName === values.usernameOrEmail
-//       );
-// console.log(foundUser);
-//       if (foundUser?.twoFactorEnabled) {
-//         localStorage.setItem("pendingLogin", values.usernameOrEmail);
-//         toast.info('2FA is enabled, please verify');
-//         navigate("/2fa-method-login");
-//         return;
-//       }
+      const foundUser = data.data.users.find(
+        user =>
+          user.email === values.usernameOrEmail ||
+          user.userName === values.usernameOrEmail
+      );
+console.log(foundUser);
+      if (foundUser?.twoFactorEnabled) {
+        localStorage.setItem("pendingLogin", values.usernameOrEmail);
+        toast.info('2FA is enabled, please verify');
+        navigate("/2fa-method-login");
+        return;
+      }
 
       try {
-        // const response = await loginUser(values).unwrap();
-        // localStorage.setItem('accessToken', response.data.token.accessToken);
-        // localStorage.setItem('refreshToken', response.data.token.refreshToken);
+        const response = await loginUser(values).unwrap();
+        localStorage.setItem('accessToken', response.data.token.accessToken);
+        localStorage.setItem('refreshToken', response.data.token.refreshToken);
         toast.success('Login successful!');
         navigate('/');
       } catch (error) {
@@ -56,8 +56,8 @@ const Login = () => {
     },
   });
 
-//   if (isLoading) return <p>Loading...</p>;
-//   if (isError) return <p>Error loading users</p>;
+  if (isLoading) return <p>Loading...</p>;
+  if (isError) return <p>Error loading users</p>;
 ;
   return (
     <div className='Auth'>

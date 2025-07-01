@@ -5,11 +5,12 @@ import '../index.scss';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
-// import { useLoginSendOtpEmailMutation } from '../../Redux/services/Userservice';
+import { useLoginSendOtpEmailMutation } from '../../../Redux/services/Userservice';
+
 
 function LoginSendOtpEmail() {
   const navigate = useNavigate();
-// let [loginSendOtpEmail] = useLoginSendOtpEmailMutation()
+let [loginSendOtpEmail] = useLoginSendOtpEmailMutation()
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -21,7 +22,7 @@ function LoginSendOtpEmail() {
     }),
     onSubmit: async (values) => {
 console.log(values);
-    //  await loginSendOtpEmail(values.email);
+     await loginSendOtpEmail(values.email);
 
       toast.success('Verification link sent to your email');
    setTimeout(() => {
