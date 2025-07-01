@@ -32,16 +32,7 @@ const Routes = [
         ]
     }
     ,
-    {
-        path: "admin",
-        element: <AdminLayout />,
-        children: [
-            { path: "", element: <Dashboard /> },
-            { path: "orders", element: <Orders /> },
-            { path: "products", element: <Products /> },
-            { path: "stores", element: <Stores /> },
-            { path: "suppliers", element: <Suppliers /> },
-            { path: "users", element: <Users /> }
+   
         {
         path:"dashboard",
         element:<AdminLayout/>,
