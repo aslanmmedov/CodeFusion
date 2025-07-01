@@ -19,6 +19,7 @@ import Login from "../pages/Auth/Login"
 import Register from "../pages/Auth/Register"
 import Error404 from "../pages/ErrorPage"
 import UserProfile from "../pages/User/UserProfile"
+import SuperadminVerify from "../pages/Auth/superadminverify"
 
 const Routes = [
     {
@@ -68,6 +69,7 @@ const Routes = [
     { path: '/register', element: <Register /> },
     { path: '/login', element: <Login /> },
     { path: "confirm-email/:userId/:token", element: <Confirm /> },
+    { path: "confirm-email-superadmin/:email/:token", element: <SuperadminVerify /> },
     { path: "forgot-password", element: <ForgotPassword /> },
     { path: "2fa-method-login", element: <TwoFAMethodLogin /> },
     { path: "2fa-verify-otp-email", element: <LoginVerifyEmailOtp /> },

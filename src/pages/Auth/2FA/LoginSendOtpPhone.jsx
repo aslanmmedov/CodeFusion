@@ -5,7 +5,7 @@ import '../index.scss';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
-import { useLoginSendOtpPhoneMutation } from '../../../Redux/services/Userservice';
+import { useLoginSendOtpPhoneMutation } from '../../../redux/services/userservice';
 
 function LoginSendOtpPhone() {
   const navigate = useNavigate();

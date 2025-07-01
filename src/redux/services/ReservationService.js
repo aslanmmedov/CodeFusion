@@ -54,7 +54,7 @@ export const reservationApi = createApi({
     }),
     addReservation: builder.mutation({
       query: (reservation) => ({
-        url: "/Reservations",
+        url: "/Reservation",
         method: "POST",
         body: reservation,
       }),

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useGetUsersQuery } from '../../../redux/services/Userservice';
+import { useGetUsersQuery } from '../../../redux/services/userservice';
 import DynamicPage from '../../../components/Admin/DynamicPage';
 function Users() {
   let {data, isLoading, isError} = useGetUsersQuery({ page: 0, size: 10 });

@@ -3,7 +3,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import './index.scss';
 import { Link, useNavigate } from 'react-router-dom';
-import { useForgotPasswordMutation } from '../../Redux/services/Userservice';
+import { useForgotPasswordMutation } from '../../redux/services/userservice';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
