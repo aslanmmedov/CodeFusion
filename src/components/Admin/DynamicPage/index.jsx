@@ -7,11 +7,14 @@ import { useTranslation } from 'react-i18next';
 import StoreForm from '../Forms';
 
 function DynamicPage({ columns, data, onSubmit }) {
+    
     const { t, i18n } = useTranslation();
     const [filterData, setFilterData] = useState(data);
     const [open, setOpen] = useState(false);
     let location = useLocation()
     let pathname = location.pathname.split('/')[2]
+    // const userRole = localStorage.getItem("userRole");
+    const UserRole = "admin";
     // console.log("filterdata",filterData);
     
     const dataWithKey = filterData?.map((item, index) => ({ ...item, key: item.id || index }));
@@ -61,7 +64,7 @@ function DynamicPage({ columns, data, onSubmit }) {
                             {t(pathname.slice(0, -1))}  {t('add')}
 
                         </button> :
-                            <button onClick={() => setOpen(true)} ><IoMdAddCircle />
+                            <button className={UserRole === "admin"? "btn-c":"btn-m"} onClick={() => setOpen(true)} ><IoMdAddCircle />
 
                                 {t('add')}  {t(pathname.slice(0, -1))}
 

@@ -21,6 +21,16 @@
     list-style: none;
     li {
       width: 100%;
+      button {
+        margin-left: 1.2rem;
+        margin-top: 1rem;
+        font-size: 1.2rem;
+        color: white;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+      }
     }
     a {
       @include flex(flex-start, flex-start, row, 10px);
@@ -29,7 +39,7 @@
       color: white;
       background: #01a9ae;
       text-decoration: none;
-      padding: 10px 0px 10px 20px ;
+      padding: 10px 0px 10px 20px;
       display: flex;
       align-items: center;
     }
@@ -40,13 +50,12 @@
     }
   }
 }
-.sidebar-m{
+.sidebar-m {
   position: fixed;
   @include flex(flex-start, flex-start, column, 20px);
   height: 100vh;
   width: 20%;
   background-color: $site-color-main;
-
   h1 {
     text-transform: uppercase;
     width: 100%;
@@ -56,28 +65,46 @@
     margin-top: 15px;
     letter-spacing: 1px;
     font-weight: 500;
+    img {
+      width: 100px;
+    }
   }
   ul {
     width: 100%;
     @include flex(flex-start, flex-start, column, 20px);
     list-style: none;
+    padding: 0 1rem 1rem 0;
     li {
       width: 100%;
+      font-size: 1.2rem;
+      color: white;
+      button {
+        margin-left: 1.2rem;
+        margin-top: 1rem;
+        font-size: 1.2rem;
+        color: white;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+      }
     }
     a {
       @include flex(flex-start, flex-start, row, 10px);
     }
     .navlink {
       color: white;
-      background: #8D703B;
+      background: #8d703b;
       text-decoration: none;
-      padding: 10px 0px 10px 20px ;
+      padding: 10px 0px 10px 20px;
       display: flex;
       align-items: center;
+      border-bottom-right-radius: 10px;
+      border-top-right-radius: 10px;
     }
 
     .navlink.active {
-      color: #8D703B;
+      color: #8d703b;
       background: white;
     }
   }
