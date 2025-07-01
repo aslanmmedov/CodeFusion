@@ -53,7 +53,7 @@ const Routes = [
             
         ]
     }   
-    }
+    
     ,
     // AUTH
     { path: '/register', element: <Register /> },
