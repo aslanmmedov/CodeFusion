@@ -6,6 +6,7 @@ import Products from "../pages/Admin/Products"
 import Stores from "../pages/Admin/Stores"
 import Suppliers from "../pages/Admin/Suppliers"
 import Users from "../pages/Admin/Users"
+import Home from "../pages/User/Home"
 import LoginSendOtpEmail from "../pages/Auth/2FA/LoginSendOtpEmail"
 import LoginSendOtpPhone from "../pages/Auth/2FA/LoginSendOtpPhone"
 import LoginVerifyEmailOtp from "../pages/Auth/2FA/LoginVerifyOtpEmail"
@@ -41,6 +42,15 @@ const Routes = [
             {path:"suppliers",element:<Suppliers/>},
             {path:"users",element:<Users/>}
         ]
+    },
+    {
+        path:"/",
+        element:<UserLayout/>,
+        children:[
+            {path:"",element:<Home/>},
+            
+        ]
+    }
     },
     // AUTH
     { path: '/register', element: <Register /> },

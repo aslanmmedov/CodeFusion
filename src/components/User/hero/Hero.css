@@ -1,0 +1,25 @@
+#hero {
+    background-image: url(https://themewagon.github.io/deluxe/images/bg_2.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 40px;
+}
+
+.hero_content {
+    display: flex;
+    flex-direction: column;
+    padding: 170px 0;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.hero span {
+    font-size: 26px;
+}
+
+.hero h2 {
+    font-size: 43px;
+    padding: 18px 0 28px 0;
+}
