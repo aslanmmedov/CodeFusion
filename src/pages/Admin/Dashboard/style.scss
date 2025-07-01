@@ -1,0 +1,92 @@
+  .h-cards{
+    display: flex;
+    flex-direction: column;
+    h1{
+        padding:2rem 0;
+        font-size: 3rem;
+        color:#01A9AE;
+    }
+    .cards{
+      display: flex;
+      gap:3rem;
+      .s-card{
+        display: flex;
+        gap:1rem;
+        padding:1.2rem 1.5rem;
+        background-color: #01A9AE;
+        color:white;
+        border-radius: 20px;
+        .txt{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            p{
+                font-size: 1.3rem;
+                font-weight: 600;
+            }
+            h2{
+                 font-size: 1.5rem;
+                font-weight: 600;
+            }
+        }
+        i{
+            font-size: 2.5rem;
+        }
+      }
+    }
+  }
+  .m-cards{
+    display: flex;
+    flex-direction: column;
+    h1{
+        padding:2rem 0;
+        font-size: 3rem;
+        color:#8D703B;
+    }
+    .cards{
+      display: flex;
+      gap:3rem;
+      .s-card{
+        display: flex;
+        gap:1rem;
+        padding:1.2rem 1.5rem;
+        background-color: #8d703be3;
+        color:white;
+        border-radius: 20px;
+        .txt{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            p{
+                font-size: 1.3rem;
+                font-weight: 600;
+            }
+            h2{
+                 font-size: 1.5rem;
+                font-weight: 600;
+            }
+        }
+        i{
+            font-size: 2.5rem;
+        }
+      }
+    }
+  }
+  .circleChart{
+    h2{
+        font-size:2.4rem;
+        color:#01A9AE;
+        margin-top: 5rem;
+    }
+    display: flex;
+    flex-direction: column;
+  }
+  .c-chart{
+    h2{
+        font-size:2.4rem;
+        color:#8D703B;
+        margin-top: 5rem;
+    }
+    display: flex;
+    flex-direction: column;
+  }

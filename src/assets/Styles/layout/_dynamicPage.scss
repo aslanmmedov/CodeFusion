@@ -35,8 +35,10 @@
         background-color: $site-color;
         padding: 5px 10px;
         border-radius: 5px;
-
         cursor: pointer;
+      }
+      .btn-m{
+        background-color: $site-color-main;
       }
     }
     .actions {

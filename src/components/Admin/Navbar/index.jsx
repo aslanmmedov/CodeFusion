@@ -8,19 +8,20 @@ function Navbar() {
   const handleLanguage = (lang) => {
     i18n.changeLanguage(lang);
   }
-
+  // const userRole = localStorage.getItem("userRole");
+    const userRole = "admin";
   return (
     <div className='navbarr'>
-      <h2>  POS(Point of Sales) v3.0</h2>
+      {userRole === "admin"?<h2>  POS(Point of Sales) v3.0</h2>:<h2 style = {{backgroundColor:"transparent"}}></h2>}
       <div className="navbar-right">
         <select onChange={(e)=>handleLanguage(e.target.value)}>
           <option value="az">az</option>
            <option value="en">en</option>
         </select>
-        <span className='time'>11 : 13 : 31 AM</span>
+        <span className={userRole === "admin"? "time": "time-m"}>11 : 13 : 31 AM</span>
         <span><IoIosNotifications /></span>
         <div className="user-info">
-          <span className='user-name'>Admin</span>
+          <span className='user-name'>{userRole=== "admin"?"Admin":"Manager"}</span>
      
             <img src={icon} alt="user avatar" />
         </div>

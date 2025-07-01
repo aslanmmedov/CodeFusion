@@ -42,6 +42,16 @@ const Routes = [
             { path: "stores", element: <Stores /> },
             { path: "suppliers", element: <Suppliers /> },
             { path: "users", element: <Users /> }
+        {
+        path:"dashboard",
+        element:<AdminLayout/>,
+        children:[
+            {path:"",element:<Dashboard/>},
+            {path:"müşteriler",element:<Orders/>},
+            {path:"rezervasiyalar",element:<Products/>},
+            {path:"xidmetler",element:<Stores/>},
+            {path:"otaqlar",element:<Suppliers/>},
+            {path:"istifadeçiler",element:<Users/>}
         ]
     }
     ,

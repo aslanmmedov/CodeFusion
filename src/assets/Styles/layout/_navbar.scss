@@ -23,6 +23,13 @@
         color: #fff;
         font-size: 0.8rem;
     }
+    .time-m{  
+        background-color: $site-color-main;
+        padding: 3px 5px;
+        border-radius: 5px;
+        color: #fff;
+        font-size: 0.8rem;
+    }
     .user-info{
         @include flex(flex-start,center,row,5px);
       img{
