@@ -1,0 +1,63 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+}
+
+/* Dashboard düyməsi */
+.dashboard-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #1F3F53FF;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.dashboard-btn:hover {
+  background-color: #0f2a3d;
+}
+
+/* User icon */
+.user-icon {
+  cursor: pointer;
+  color: #1F3F53FF;
+}
+
+/* Dropdown menyu */
+.dropdown-menu {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  list-style: none;
+  padding: 10px 0;
+  width: 180px;
+  z-index: 100;
+}
+
+.dropdown-menu li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-menu li:hover {
+  background-color: #f0f0f0;
+}
+
+.icon {
+  color: #1F3F53FF;
+}
