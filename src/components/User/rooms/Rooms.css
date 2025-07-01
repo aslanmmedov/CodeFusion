@@ -1,0 +1,134 @@
+#rooms {
+  background: #F8F9FAFF;
+  margin: 60px 0;
+}
+
+.sec_title h3 {
+  font-size: 30px;
+  text-align: center;
+  font-weight: 450;
+}
+
+.room_cards {
+  margin-bottom: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 0 20px;
+}
+
+/* ROOM CARD */
+.cardd {
+  width: 300px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  background-color: #fff;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.cardd:hover {
+  transform: translateY(-5px);
+}
+
+.cardd_img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.cardd_content {
+  padding: 20px;
+  text-align: center;
+}
+
+.cardd_title {
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 12px;
+  color: #000;
+  text-align: center;
+}
+
+.cardd_price {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.price {
+  font-size: 28px;
+  font-weight: bold;
+  color: #000;
+  border-bottom: 2px solid #000;
+}
+
+.per-night {
+  font-size: 14px;
+  color: #999;
+}
+
+.divider {
+  margin: 16px 0;
+  border: none;
+  border-top: 1px solid #ddd;
+}
+
+.room-link {
+  font-size: 14px;
+  color: #000;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.room-link:hover {
+  color: #0077aa;
+}
+
+.detaill {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* ============================= */
+/*          RESPONSIVE           */
+/* ============================= */
+
+/* Tablet: 768px və yuxarı */
+@media screen and (min-width: 768px) {
+  .room_cards {
+    justify-content: space-evenly;
+  }
+
+  .cardd {
+    width: 45%;
+  }
+}
+
+/* Desktop: 1024px və yuxarı */
+@media screen and (min-width: 1024px) {
+  .cardd {
+    width: 30%;
+  }
+}
+
+/* Mobil: 480px və aşağı */
+@media screen and (max-width: 480px) {
+  .cardd {
+    width: 100%;
+  }
+
+  .cardd_title {
+    font-size: 20px;
+  }
+
+  .price {
+    font-size: 24px;
+  }
+}

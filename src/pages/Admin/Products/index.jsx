@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import DynamicPage from "../../../components/Admin/DynamicPage";
 import { useTranslation } from "react-i18next";
+
+import { RoleContext } from "../../../Context/RolesContext";
 import { useGetReservationsQuery } from "../../../redux/services/ReservationService";
+
 const dataSource = [
   {
     key: "1",
@@ -36,6 +39,8 @@ const columns = [
 ];
 function Products() {
   const { t } = useTranslation();
+
+  const { UserRole } = useContext(RoleContext);
 let {data,isLoading,isError} = useGetReservationsQuery()
 
   if (isLoading) {
@@ -45,6 +50,7 @@ let {data,isLoading,isError} = useGetReservationsQuery()
   if (isError) {
     return <h1>{t("Error loading data")}</h1>;
   }
+
 
   return (
      <DynamicPage columns={columns} data={dataSource}/>

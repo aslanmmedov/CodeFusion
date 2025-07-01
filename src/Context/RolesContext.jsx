@@ -5,7 +5,7 @@ import React, { createContext, useEffect, useState } from "react";
 export const RoleContext = createContext(null);
 
 const RoleProvider = ({ children }) => {
-    const [UserRole,setUserRole] =useState("manage");
+    const [UserRole,setUserRole] =useState("manager");
 
 //   const getAllDoctors = async () => {
 //     const {data} = await controller.getAllData(endpoints.doctors);

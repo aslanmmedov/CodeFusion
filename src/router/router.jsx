@@ -59,6 +59,8 @@ const Routes = [
             { path: "", element: <Home /> },
 
         ]
+
+    }
     },
      {
         path: "*",
