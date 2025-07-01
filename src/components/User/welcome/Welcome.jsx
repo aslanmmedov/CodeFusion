@@ -3,11 +3,11 @@ import "./Welcome.css"
 const Welcome = () => {
   return (
     <section id="welcome">
-        <div className="row container8">
-            <div className="welcome_img col-6">
+        <div className="welcome_container">
+            <div className="welcome_img ">
                 <img src="https://themewagon.github.io/deluxe/images/bg_1.jpg" alt="" />
             </div>
-            <div className="welcome_content col-6">
+            <div className="welcome_content">
                 <span>Welcome to Deluxe Hotel</span>
                 <h2>Welcome To Our Hotel</h2>
                 <p>
