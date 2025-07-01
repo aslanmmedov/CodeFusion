@@ -25,11 +25,11 @@ function LoginVerifyEmailOtp() {
         onSubmit: async (values) => {
             values.email = userEmail
             const response = await loginSendOtpVerify(values).unwrap();
-            console.log(response);
-            if (success) {
-                // Məsələn tokenlər gəldisə:
-                localStorage.setItem('accessToken', 'dummy-access-token');
-                localStorage.setItem('refreshToken', 'dummy-refresh-token');
+            console.log(response.data.accessToken);
+            if (response.data) {
+               
+                localStorage.setItem('accessToken',response.data.accessToken );
+                localStorage.setItem('refreshToken', response.data.refreshToken);
                 toast.success('OTP verified successfully!');
                 navigate('/');
             } else {

@@ -3,8 +3,8 @@ import DynamicPage from "../../../components/Admin/DynamicPage";
 import { useTranslation } from "react-i18next";
 
 import { RoleContext } from "../../../Context/RolesContext";
-import { useGetReservationsQuery } from "../../../redux/services/ReservationService";
 
+import { useAddReservationMutation, useGetReservationsQuery } from "../../../redux/services/ReservationService";
 const dataSource = [
   {
     key: "1",
@@ -19,7 +19,7 @@ const dataSource = [
     address: "10 Downing Street",
   },
 ];
-import { useAddReservationMutation, useGetReservationsQuery } from "../../../redux/services/ReservationService";
+
 
 const columns = [
   { title: "Name", dataIndex: "name", key: "name" },
@@ -32,11 +32,11 @@ function Products() {
 
   const { data, isLoading, isError, refetch } = useGetReservationsQuery();
 
-  
+
   const [addReservation] = useAddReservationMutation();
 
   const { UserRole } = useContext(RoleContext);
-let {data,isLoading,isError} = useGetReservationsQuery()
+
 
   if (isLoading) return <h1>{t("Loading...")}</h1>;
   if (isError) return <h1>{t("Error loading data")}</h1>;
@@ -45,7 +45,7 @@ let {data,isLoading,isError} = useGetReservationsQuery()
   const handleAddReservation = async (values) => {
     try {
       await addReservation(values).unwrap();
-      refetch(); 
+      refetch();
       alert(t("Reservation added successfully"));
     } catch (error) {
       alert(t("Error adding reservation"));
@@ -57,7 +57,7 @@ let {data,isLoading,isError} = useGetReservationsQuery()
     <DynamicPage
       columns={columns}
       data={data?.data}
-      onSubmit={handleAddReservation} 
+      onSubmit={handleAddReservation}
     />
   );
 }

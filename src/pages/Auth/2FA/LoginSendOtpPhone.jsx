@@ -12,10 +12,10 @@ function LoginSendOtpPhone() {
 let [LoginSendOtpPhone] = useLoginSendOtpPhoneMutation()
   const formik = useFormik({
     initialValues: {
-      phoneNumber: '',
+      number: '',
     },
     validationSchema: Yup.object({
-      phoneNumber: Yup.string()
+      number: Yup.string()
         .matches(/^\+?[0-9]{7,15}$/, "Invalid phone number format")
         .required('Phone number is required'),
     }),
@@ -39,16 +39,16 @@ let [LoginSendOtpPhone] = useLoginSendOtpPhoneMutation()
 
       <form onSubmit={formik.handleSubmit}>
         <input
-          id="phoneNumber"
-          name="phoneNumber"
+          id="number"
+          name="number"
           type="text"
           placeholder="+994501234567"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          value={formik.values.phoneNumber}
+          value={formik.values.number}
         />
-        {formik.touched.phoneNumber && formik.errors.phoneNumber ? (
-          <div>{formik.errors.phoneNumber}</div>
+        {formik.touched.number && formik.errors.number ? (
+          <div>{formik.errors.number}</div>
         ) : null}
 
         <button type="submit">Send OTP</button>

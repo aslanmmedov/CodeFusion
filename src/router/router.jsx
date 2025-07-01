@@ -62,7 +62,7 @@ const Routes = [
         ]
 
     }
-    },
+    ,
      {
         path: "*",
         element: <Error404 />,
