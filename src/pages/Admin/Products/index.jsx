@@ -1,6 +1,7 @@
 import React from "react";
 import DynamicPage from "../../../components/Admin/DynamicPage";
 import { useTranslation } from "react-i18next";
+import { useGetReservationsQuery } from "../../../redux/services/ReservationService";
 const dataSource = [
   {
     key: "1",
@@ -35,6 +36,16 @@ const columns = [
 ];
 function Products() {
   const { t } = useTranslation();
+let {data,isLoading,isError} = useGetReservationsQuery()
+
+  if (isLoading) {
+    return <h1>{t("Loading...")}</h1>;
+  }
+
+  if (isError) {
+    return <h1>{t("Error loading data")}</h1>;
+  }
+
   return (
      <DynamicPage columns={columns} data={dataSource}/>
   );

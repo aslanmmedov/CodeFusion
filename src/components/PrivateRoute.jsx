@@ -1,19 +1,16 @@
-import React from "react";
+
+import React, { useContext } from "react";
 import { Navigate, Outlet } from "react-router-dom";
+import { RoleContext } from "../Context/RolesContext";
+import Error404 from "../pages/ErrorPage";
 
 const PrivateRoute = ({ allowedRoles }) => {
-  const accessToken = localStorage.getItem("accessToken");
-  const userRole = localStorage.getItem("userRole"); // "admin" və ya "user"
+  const { UserRole } = useContext(RoleContext);
 
-  if (!accessToken) {
-    return <Navigate to="/login" replace />;
+  if (allowedRoles.includes(UserRole)) {
+    return <Outlet />;
+  } else {
+    return <Error404 />;
   }
-
-  if (allowedRoles && !allowedRoles.includes(userRole)) {
-    return <Navigate to="/unauthorized" replace />;
-  }
-
-  return <Outlet />;
 };
-
 export default PrivateRoute;

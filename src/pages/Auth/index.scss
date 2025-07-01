@@ -9,15 +9,15 @@
     justify-content: center;
     h2{
         font-size: 32px;
-        color: #236D5A;
+        color: #1F3F53;
     }
     a{
-        color: #236D5A;
+        color: #1F3F53;
         text-decoration: none;
         font-size: 16px;
         transition: color 0.3s ease;
         &:hover{
-            color: #1a4f42;
+            color: #1F3F53;
         }
     }
     form{
@@ -33,7 +33,7 @@
             font-size: 16px;
             &:focus{
                 outline: none;
-                border-color: #236D5A;
+                border-color: #1F3F53;
             }
             &::placeholder{
                 color: #999;
@@ -44,13 +44,13 @@
             padding: 10px;
             border-radius: 5px;
             border: none;
-            background-color: #236D5A;
+            background-color: #1F3F53;
             color: white;
             font-size: 16px;
             cursor: pointer;
             transition: background-color 0.3s ease;
             &:hover{
-                background-color: #1a4f42;
+                background-color: #1F3F53;
             }
         }
 
