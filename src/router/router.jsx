@@ -9,15 +9,15 @@ import Users from "../pages/Admin/Users"
 import Home from "../pages/User/Home"
 const Routes = [
         {
-        path:"admin",
+        path:"dashboard",
         element:<AdminLayout/>,
         children:[
             {path:"",element:<Dashboard/>},
-            {path:"orders",element:<Orders/>},
-            {path:"products",element:<Products/>},
-            {path:"stores",element:<Stores/>},
-            {path:"suppliers",element:<Suppliers/>},
-            {path:"users",element:<Users/>}
+            {path:"müşteriler",element:<Orders/>},
+            {path:"rezervasiyalar",element:<Products/>},
+            {path:"xidmetler",element:<Stores/>},
+            {path:"otaqlar",element:<Suppliers/>},
+            {path:"istifadeçiler",element:<Users/>}
         ]
     },
     {
